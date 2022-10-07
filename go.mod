@@ -1,4 +1,4 @@
-module consult
+module gin_consult
 
 go 1.19
 
