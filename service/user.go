@@ -43,6 +43,7 @@ func (service UserService) Register(ctx context.Context) serializer.Response {
 			Data:   "密钥长度不足",
 		}
 	}
+	//
 	util.Encrypt.SetKey(service.Key)
 	userDao := dao.NewUserDao(ctx)
 	_, exist, err := userDao.ExistOrNotByUserName(service.UserName)
