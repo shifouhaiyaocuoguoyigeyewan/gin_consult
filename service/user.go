@@ -2,14 +2,14 @@ package service
 
 import (
 	"context"
-	logging "github.com/sirupsen/logrus"
-	"gopkg.in/mail.v2"
 	"gin_consult/config"
 	"gin_consult/dao"
 	"gin_consult/model"
 	"gin_consult/pkg/e"
 	util "gin_consult/pkg/utils"
 	"gin_consult/serializer"
+	logging "github.com/sirupsen/logrus"
+	"gopkg.in/mail.v2"
 	"mime/multipart"
 	"strings"
 	"time"
@@ -33,6 +33,7 @@ type SendEmailService struct {
 type ValidEmailService struct {
 }
 
+
 func (service UserService) Register(ctx context.Context) serializer.Response {
 	code := e.SUCCESS
 	if service.Key == "" || len(service.Key) != 16 {
@@ -43,7 +44,6 @@ func (service UserService) Register(ctx context.Context) serializer.Response {
 			Data:   "密钥长度不足",
 		}
 	}
-	//
 	util.Encrypt.SetKey(service.Key)
 	userDao := dao.NewUserDao(ctx)
 	_, exist, err := userDao.ExistOrNotByUserName(service.UserName)
