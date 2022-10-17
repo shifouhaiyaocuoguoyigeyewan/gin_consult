@@ -4,16 +4,16 @@ import (
 	"context"
 	"github.com/qiniu/go-sdk/v7/auth/qbox"
 	"github.com/qiniu/go-sdk/v7/storage"
-	"gin_consult/conf"
+	"gin_consult/config"
 	"mime/multipart"
 )
 
 // UploadToQiNiu 封装上传图片到七牛云然后返回状态和图片的url，单张
 func UploadToQiNiu(file multipart.File, fileSize int64) (path string, err error) {
-	var AccessKey = conf.AccessKey
-	var SerectKey = conf.SerectKey
-	var Bucket = conf.Bucket
-	var ImgUrl = conf.QiniuServer
+	var AccessKey = config.AccessKey
+	var SerectKey = config.SerectKey
+	var Bucket = config.Bucket
+	var ImgUrl = config.QiniuServer
 	putPlicy := storage.PutPolicy{
 		Scope: Bucket,
 	}

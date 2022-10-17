@@ -1,7 +1,9 @@
 package model
 
 import (
+	"gin_consult/cache"
 	"github.com/jinzhu/gorm"
+	"strconv"
 )
 
 //商品模型
@@ -22,11 +24,11 @@ type Product struct {
 }
 
 // View 获取点击数
-//func (product *Product) View() uint64 {
-//	countStr, _ := cache.RedisClient.Get(cache.ProductViewKey(product.ID)).Result()
-//	count, _ := strconv.ParseUint(countStr, 10, 64)
-//	return count
-//}
+func (product *Product) View() uint64 {
+	countStr, _ := cache.RedisClient.Get(cache.ProductViewKey(product.ID)).Result()
+	count, _ := strconv.ParseUint(countStr, 10, 64)
+	return count
+}
 
 // AddView 商品游览
 //func (product *Product) AddView() {

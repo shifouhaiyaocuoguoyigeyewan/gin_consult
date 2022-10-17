@@ -51,11 +51,11 @@ func Init() {
 	}
 	LoadServer(file)
 	LoadMysqlData(file)
-	LoadQiniu(file)
-	LoadEmail(file)
-	LoadEs(file)
-	LoadPhotoPath(file)
-	LoadRabbitMQ(file)
+	//LoadQiniu(file)
+	//LoadEmail(file)
+	//LoadEs(file)
+	//LoadPhotoPath(file)
+	//LoadRabbitMQ(file)
 	//if err := LoadLocales("config/locales/zh-cn.yaml"); err != nil {
 	//	logging.Info(err) //日志内容
 	//	panic(err)
