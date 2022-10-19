@@ -5,7 +5,7 @@ import "gin_consult/model"
 type User struct {
 	ID       uint   `json:"id"`
 	UserName string `json:"user_name"`
-	NickName string `json:"nickname"`
+	NickName string `json:"nick_name"`
 	Type     int    `json:"type"`
 	Email    string `json:"email"`
 	Status   string `json:"status"`
