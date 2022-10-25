@@ -2,7 +2,6 @@ package util
 
 import (
 	"github.com/dgrijalva/jwt-go"
-	logging "github.com/sirupsen/logrus"
 	"time"
 )
 
@@ -19,10 +18,8 @@ type Claims struct {
 func GenerateToken(id uint, username string, authority int) (string, error) {
 	// 当前时间
 	nowTime := time.Now()
-	logging.Info("nowTime is",nowTime)
 	// 过期时间
 	expireTime := nowTime.Add(24 * time.Hour)
-	logging.Info("expireTime is",expireTime)
 	claims := Claims{
 		ID:id,
 		Username:  username,

@@ -158,6 +158,7 @@ func (service UserService) Update(ctx context.Context, uId uint) serializer.Resp
 	}
 }
 
+//Post 更新头像
 func (service *UserService) Post(ctx context.Context, uId uint, file multipart.File, fileSize int64) serializer.Response {
 	code := e.SUCCESS
 	var err error
