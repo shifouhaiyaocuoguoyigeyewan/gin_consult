@@ -52,7 +52,7 @@ func Init() {
 	LoadServer(file)
 	LoadMysqlData(file)
 	//LoadQiniu(file)
-	//LoadEmail(file)
+	LoadEmail(file)
 	//LoadEs(file)
 	//LoadPhotoPath(file)
 	//LoadRabbitMQ(file)

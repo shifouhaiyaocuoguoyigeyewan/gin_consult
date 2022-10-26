@@ -49,7 +49,7 @@ func ParseToken(token string) (*Claims, error) {
 
 //EmailClaims
 type EmailClaims struct {
-	UserID        uint   `json:"user_id"`
+	UserID        uint   `json:"id"`
 	Email         string `json:"email"`
 	Password      string `json:"password"`
 	OperationType uint   `json:"operation_type"`

@@ -233,7 +233,7 @@ func (service *SendEmailService) Send(ctx context.Context, id uint) serializer.R
 	m := mail.NewMessage()
 	m.SetHeader("From", config.SmtpEmail)
 	m.SetHeader("To", service.Email)
-	m.SetHeader("Subject", "FanOne")
+	m.SetHeader("Subject", "Ekko消息助手")
 	m.SetBody("text/html", mailText)
 	d := mail.NewDialer(config.SmtpHost, 465, config.SmtpEmail, config.SmtpPass)
 	d.StartTLSPolicy = mail.MandatoryStartTLS
@@ -274,6 +274,7 @@ func (service ValidEmailService) Valid(ctx context.Context, token string) serial
 			email = claims.Email
 			password = claims.Password
 			operationType = claims.OperationType
+			logging.Info("赋值userID成功",userID)
 		}
 	}
 	if code != e.SUCCESS {
@@ -282,7 +283,7 @@ func (service ValidEmailService) Valid(ctx context.Context, token string) serial
 			Msg:    e.GetMsg(code),
 		}
 	}
-
+	logging.Info("userID=",userID)
 	//获取该用户信息
 	userDao := dao.NewUserDao(ctx)
 	user, err := userDao.GetUserById(userID)
