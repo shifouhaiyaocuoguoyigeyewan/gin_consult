@@ -1,11 +1,12 @@
 package util
 
 import (
+	"fmt"
 	"github.com/dgrijalva/jwt-go"
 	"time"
 )
 
-var jwtSecret = []byte("FanOne")
+var jwtSecret = []byte("Ekko")
 
 type Claims struct {
 	ID 		  uint 	`json:"id"`
@@ -82,6 +83,7 @@ func ParseEmailToken(token string) (*EmailClaims, error) {
 	})
 	if tokenClaims != nil {
 		if claims, ok := tokenClaims.Claims.(*EmailClaims); ok && tokenClaims.Valid {
+			fmt.Printf("claims is %#v",claims)
 			return claims, nil
 		}
 	}

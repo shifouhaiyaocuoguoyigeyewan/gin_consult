@@ -2,6 +2,7 @@ package service
 
 import (
 	"context"
+	"fmt"
 	"gin_consult/config"
 	"gin_consult/dao"
 	"gin_consult/model"
@@ -203,6 +204,7 @@ func (service *UserService) Post(ctx context.Context, uId uint, file multipart.F
 
 // Send 发送邮件
 func (service *SendEmailService) Send(ctx context.Context, id uint) serializer.Response {
+	fmt.Printf("service is %#v",service)
 	code := e.SUCCESS
 	var address string
 
@@ -274,7 +276,6 @@ func (service ValidEmailService) Valid(ctx context.Context, token string) serial
 			email = claims.Email
 			password = claims.Password
 			operationType = claims.OperationType
-			logging.Info("赋值userID成功",userID)
 		}
 	}
 	if code != e.SUCCESS {
@@ -283,7 +284,6 @@ func (service ValidEmailService) Valid(ctx context.Context, token string) serial
 			Msg:    e.GetMsg(code),
 		}
 	}
-	logging.Info("userID=",userID)
 	//获取该用户信息
 	userDao := dao.NewUserDao(ctx)
 	user, err := userDao.GetUserById(userID)
