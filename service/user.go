@@ -266,6 +266,7 @@ func (service ValidEmailService) Valid(ctx context.Context, token string) serial
 		code = e.InvalidParams
 	} else {
 		claims, err := util.ParseEmailToken(token)
+		fmt.Printf("claims is %#v",claims)
 		if err != nil {
 			logging.Info(err)
 			code = e.ErrorAuthCheckTokenFail
