@@ -1,12 +1,13 @@
 package v1
 
 import (
-	"github.com/gin-gonic/gin"
 	util "gin_consult/pkg/utils"
 	"gin_consult/service"
+	"github.com/gin-gonic/gin"
 )
 
 func ShowMoney(c *gin.Context) {
+	util.LogrusObj.Infoln("ces")
 	showMoneyService := service.ShowMoneyService{}
 	claim, _ := util.ParseToken(c.GetHeader("Authorization"))
 	if err := c.ShouldBind(&showMoneyService); err == nil {

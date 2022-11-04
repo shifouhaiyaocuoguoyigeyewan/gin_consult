@@ -1,9 +1,9 @@
 package v1
 
 import (
-	"github.com/gin-gonic/gin"
 	util "gin_consult/pkg/utils"
 	"gin_consult/service"
+	"github.com/gin-gonic/gin"
 )
 
 // 创建商品
@@ -29,7 +29,8 @@ func ListProducts(c *gin.Context) {
 		res := listProductsService.List(c.Request.Context())
 		c.JSON(200, res)
 	} else {
-		c.JSON(400, ErrorResponse(err))
+		//c.JSON(400, ErrorResponse(err))
+		c.JSON(400,"失败")
 		util.LogrusObj.Infoln(err)
 	}
 }

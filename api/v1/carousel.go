@@ -1,9 +1,9 @@
 package v1
 
 import (
-	"github.com/gin-gonic/gin"
 	util "gin_consult/pkg/utils"
 	"gin_consult/service"
+	"github.com/gin-gonic/gin"
 )
 
 func ListCarousels(c *gin.Context) {
