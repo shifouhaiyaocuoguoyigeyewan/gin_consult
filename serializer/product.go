@@ -33,7 +33,7 @@ func BuildProduct(item *model.Product) Product {
 		ImgPath:       item.ImgPath,
 		Price:         item.Price,
 		DiscountPrice: item.DiscountPrice,
-		View:          item.View(),
+		//View:          item.View(),
 		Num:           item.Num,
 		OnSale:        item.OnSale,
 		CreatedAt:     item.CreatedAt.Unix(),

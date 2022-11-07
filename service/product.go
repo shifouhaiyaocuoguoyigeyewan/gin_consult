@@ -2,11 +2,11 @@ package service
 
 import (
 	"context"
-	logging "github.com/sirupsen/logrus"
 	"gin_consult/dao"
 	"gin_consult/model"
 	"gin_consult/pkg/e"
 	"gin_consult/serializer"
+	logging "github.com/sirupsen/logrus"
 	"mime/multipart"
 	"strconv"
 	"sync"
@@ -14,10 +14,11 @@ import (
 
 //更新商品的服务
 type ProductService struct {
-	ID            uint   `form:"id" json:"id"`
-	Name          string `form:"name" json:"name"`
-	CategoryID    int    `form:"category_id" json:"category_id"`
-	Title         string `form:"title" json:"title" binding:"required,min=2,max=100"`
+	ID         uint   `form:"id" json:"id"`
+	Name       string `form:"name" json:"name"`
+	CategoryID int    `form:"category_id" json:"category_id"`
+	//binding:"required,min=2,max=100"
+	Title         string `form:"title" json:"title"`
 	Info          string `form:"info" json:"info" binding:"max=1000"`
 	ImgPath       string `form:"img_path" json:"img_path"`
 	Price         string `form:"price" json:"price"`
