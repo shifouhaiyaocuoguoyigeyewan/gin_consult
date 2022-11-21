@@ -1,11 +1,11 @@
 package routers
 
 import (
+	api "gin_consult/api/v1"
+	"gin_consult/middleware"
 	"github.com/gin-contrib/sessions"
 	"github.com/gin-contrib/sessions/cookie"
 	"github.com/gin-gonic/gin"
-	api "gin_consult/api/v1"
-	"gin_consult/middleware"
 )
 
 //路由配置
@@ -65,7 +65,7 @@ func NewRouter() *gin.Engine {
 			authed.PUT("carts/:id", api.UpdateCart) // 购物车id
 			authed.DELETE("carts/:id", api.DeleteCart)
 
-			//收获地址操作
+			//收货地址操作
 			authed.POST("addresses", api.CreateAddress)
 			authed.GET("addresses/:id", api.GetAddress)
 			authed.GET("addresses", api.ListAddress)
